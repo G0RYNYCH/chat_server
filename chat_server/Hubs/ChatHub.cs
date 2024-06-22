@@ -7,9 +7,9 @@ public class ChatHub : Hub<IChatClient>
 {
     public async Task JoinChat(UserConnection connection)
     {
-        await Groups.AddToGroupAsync(Context.ConnectionId, connection.ChatRoom);
+        await Groups.AddToGroupAsync(Context.ConnectionId, connection.ChatRoomName);
         await Clients
-            .Group(connection.ChatRoom)
+            .Group(connection.ChatRoomName)
             .ReceiveMessage("Admin", $"{connection.UserName} was added");
     }
 }

@@ -22,3 +22,4 @@ app.UseCors();
 app.MapHub<ChatHub>("/chat");
 
 app.Run();
+//test
